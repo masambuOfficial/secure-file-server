@@ -4,7 +4,7 @@ import path from 'path';
 import session from 'express-session';
 
 const app = express();
-const port = 4000;
+const PORT = 4000;
 const __dirname = path.resolve();
 const PASSWORD = 'securepassword'; // Replace with your predefined password
 
@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Session setup
 app.use(session({
-  secret: 'secret-key', // Replace with your own secret key
+  secret: 'secret-key', 
   resave: false,
   saveUninitialized: true,
   cookie: { maxAge: 60000 } // Session valid for 1 minute
@@ -52,6 +52,6 @@ app.get('/node-course', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'node-course.html'));
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
